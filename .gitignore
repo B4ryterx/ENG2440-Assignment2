@@ -1,0 +1,19 @@
+# Never commit data or derived voxel data (brief §5)
+Task01_BrainTumour/
+Task01_BrainTumour.tar
+*.nii
+*.nii.gz
+outputs/cache/
+*.npy
+*.npz
+# local clutter
+backup/
+.ipynb_checkpoints/
+__pycache__/
+.DS_Store
+~$*
+# course material / drafts not part of the submission repo
+ENG2440_Assignment2.pdf
+assignment2_split(in).csv
+Report assignment_2.docx
+outputs/_report_tmp/

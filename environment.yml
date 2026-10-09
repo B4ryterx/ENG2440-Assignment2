@@ -1,0 +1,19 @@
+name: eng2440
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - numpy
+  - pandas
+  - scipy
+  - matplotlib
+  - scikit-image
+  - jupyterlab
+  - ipykernel
+  - pytorch        # from conda-forge (not pip) so it shares one OpenMP runtime with numpy/scipy on macOS
+  - nibabel
+  - simpleitk
+  - tqdm
+  - monai
+  - reportlab      # only for make_report.py (PDF report)

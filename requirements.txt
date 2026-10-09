@@ -1,0 +1,13 @@
+numpy
+pandas
+scipy
+matplotlib
+scikit-image
+nibabel
+SimpleITK
+torch
+tqdm
+jupyterlab
+ipykernel
+monai
+reportlab

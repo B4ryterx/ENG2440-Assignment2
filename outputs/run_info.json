@@ -1,0 +1,20 @@
+{
+ "seed": 42,
+ "device": "mps",
+ "cpu": "Apple M4 Max",
+ "torch": "2.13.0",
+ "python": "3.11.16",
+ "patch": 64,
+ "batch": 4,
+ "iters": 2000,
+ "lr": 0.001,
+ "p_fg": 0.5,
+ "overlap": 0.5,
+ "final_sampler": "tumor",
+ "postprocessing_kept": true,
+ "train_minutes": {
+  "uniform": 37.431467040266334,
+  "tumor": 33.255527643749765
+ },
+ "total_notebook_minutes": 117.46402490139008
+}
