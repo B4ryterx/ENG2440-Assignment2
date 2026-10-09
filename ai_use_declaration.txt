@@ -1,0 +1,10 @@
+AI-use declaration — ENG 2440 Assignment 2
+Student: Brandon-Jason Adebayo   ID: 25011100
+
+Tool: Claude (Anthropic), via Claude Code desktop app
+Interactions and purpose:
+ 1. Created the initial notebook scaffold, README/environment/.gitignore templates, dataset download
+    script and resource list.
+ 2. Fixed the Python environment (OpenMP conflict between pip torch and conda numpy; installed MONAI).
+ 3. Reviewed my Sections A–C against the rubric and listed gaps.
+
