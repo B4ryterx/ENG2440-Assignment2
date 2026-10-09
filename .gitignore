@@ -17,3 +17,8 @@ ENG2440_Assignment2.pdf
 assignment2_split(in).csv
 Report assignment_2.docx
 outputs/_report_tmp/
+
+# kept locally, not in the repo
+ai_use_declaration.txt
+seg_utils.py
+make_report.py
