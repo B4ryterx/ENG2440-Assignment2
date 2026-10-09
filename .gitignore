@@ -20,5 +20,4 @@ outputs/_report_tmp/
 
 # kept locally, not in the repo
 ai_use_declaration.txt
-seg_utils.py
 make_report.py
