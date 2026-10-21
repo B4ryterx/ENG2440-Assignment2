@@ -5,6 +5,17 @@ Whole-tumor segmentation of MSD Task01_BrainTumour (4-channel 3D MRI) with a lig
 with overlapping sliding-window reconstruction and evaluation in physical units.
 **Learning exercise, not a clinical tool.**
 
+## Results (73 held-out test cases, whole tumor)
+| Dice mean ± SD (median) | IoU mean | Sensitivity mean | HD95 median | Empty predictions |
+|---|---|---|---|---|
+| 0.881 ± 0.077 (0.896) | 0.794 | 0.890 | 4.2 mm | 0 of 73 |
+
+- **Small, cheap model:** a lightweight 3D U-Net trained for about 35 minutes on a laptop (Apple M4 Max, 2,000 steps of 64³ patches).
+- **Sampling comparison (validation, 73 cases):** tumor-aware sampling gave Dice 0.856 vs 0.853 for uniform sampling, higher sensitivity (0.890 vs 0.879) and a lower median HD95 (5.4 vs 6.3 mm). It was better in 44 of 73 cases, but the +0.003 Dice is within run-to-run noise (one seed).
+- **Postprocessing decided on validation only:** removing predicted components under 0.5 mL was fixed in advance and kept because it improved validation results. It mainly helps the boundary metric (test HD95 mean 8.6 → 8.2 mm), not Dice.
+- **Missing-modality stress test:** zeroing one MRI channel at test time drops Dice to 0.366 without FLAIR, 0.801 without T1, 0.849 without T1ce and 0.847 without T2. Whole-tumor segmentation depends mostly on FLAIR.
+- **Limitations** (Section G4): one run and one seed, no external-site data, whole tumor only (not tumor core or enhancing tumor).
+
 ## Repository contents
 | File | Purpose |
 |---|---|
@@ -12,7 +23,9 @@ with overlapping sliding-window reconstruction and evaluation in physical units.
 | `seg_utils.py` | Supporting code: preprocessing, patch Dataset/samplers, augmentation, 3D U-Net, loss, training loop, sliding-window inference, metrics (Dice/IoU/sensitivity/HD95), postprocessing, plotting helpers |
 | `assignment2_split.csv` | Supplied case-level split (used unchanged) |
 | `environment.yml` / `requirements.txt` | Environment |
-| `make_report.py` | Builds the PDF report from `outputs/` (edit name/ID/repo at the top, then `python make_report.py`) |
+| `Brandon-Jason_Adebayo_25011100_ENG2440_A2.pdf` | The submitted report |
+| `RESOURCES.md` | Data links, papers and library docs used |
+| `ai_use_declaration.txt` | How AI tools were used |
 | `download_data.sh` | Downloads + extracts Task01_BrainTumour (~7.6 GB) |
 | `outputs/` | Figures, per-case metric CSVs, training histories, checkpoints (`*_best.pt`, ~6 MB), `run_info.json` |
 
